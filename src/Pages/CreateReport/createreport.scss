@@ -1,0 +1,11 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: 0;
+}
+
+.create-report {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}

@@ -1,9 +1,12 @@
 import React from "react";
 import "./singlecandidate.scss";
+import { Link } from "react-router-dom"
 
 const SingleCandidate = () => {
     return ( 
-        <div>this is single</div>
+        <div className="single">
+            <Link to="/dashboard">Back to Dashboard</Link>
+        </div>
      );
 }
  

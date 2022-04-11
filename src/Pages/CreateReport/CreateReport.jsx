@@ -10,10 +10,12 @@ import Section3 from "../../Components/Section3/Section3";
 
 const CreateReport = () => {
     return ( 
-        <div>
+        <div className="create-report">
             
             <Switch>
-                <Route path="/dashboard/create-report/section" component={Section1}></Route>
+                <Route exact path="/dashboard/create-report/section1" component={Section1}></Route>
+                <Route path="/dashboard/create-report/section2" component={Section2}></Route>
+                <Route path="/dashboard/create-report/section3" component={Section3}></Route>
             </Switch>
         </div>
      );

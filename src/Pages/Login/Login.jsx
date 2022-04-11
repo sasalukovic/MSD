@@ -32,26 +32,31 @@ const Login = (props) => {
   };
   return (
     <div className="login-wrapper">
-      <h1>Log In</h1>
-      <form>
-        <label>
-          <p>Username</p>
-          <input type="text" onChange={(e) => setEmail(e.target.value)} />
-        </label>
-        <label>
-          <p>Password</p>
-          <input
-            type="password"
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </label>
-        <div>
-          <button type="submit" onClick={handleSubmit}>
-            Submit
-          </button>
-        </div>
-      </form>
+      <div className="naslov">
+        <h1>Log In</h1>
+      </div>
+      <div className="form">
+        <form>
+          <label>
+            <p>Username:</p>
+            <input type="text" onChange={(e) => setEmail(e.target.value)} placeholder="Username"/>
+          </label>
+          <label>
+            <p>Password:</p>
+            <input
+              type="password"
+              onChange={(e) => setPassword(e.target.value)} placeholder="Password"
+              />
+          </label>
+          <div>
+            <button type="submit" onClick={handleSubmit}>
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };
+
 export default Login;

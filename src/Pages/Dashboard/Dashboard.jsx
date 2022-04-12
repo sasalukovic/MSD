@@ -8,9 +8,9 @@ import CreateReport from "../CreateReport/CreateReport";
 import Report from "../../Components/Report/Report"
 import { useState, useEffect, useContext } from "react";
 import { Provider } from "../../Components/Provider/Provider";
-import { ctx } from "../../Components/Provider/Provider";
+import { ctx } from "../../Components/Provider/Provider"; 
 
-const Dashboard = () => {
+const Dashboard = (props) => {
 
     const [candidates, setCandidates] = useState([])
     const [companies, setCompanies] = useState([])
@@ -39,7 +39,7 @@ const Dashboard = () => {
     return ( 
         <div className="dashboard">
             <Provider value={{candidates, companies, reports}}>
-                <Header></Header>     
+                <Header logOut={props.setToken}></Header>     
                 <div className="list">
                     <Switch>
                         <Route exact path="/dashboard" component={Report}></Route>                    

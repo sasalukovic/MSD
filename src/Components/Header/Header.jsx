@@ -1,16 +1,21 @@
 import React, { useContext, useState } from "react";
 import "./header.scss";
-import { ctx } from "../Provider/Provider";
+import { Link } from "react-router-dom";
 
-const Header = () => {
-    
-    
+function Header (props){
+    const logout = () => {
+        props.logOut(null)  
+        localStorage.clear();
+        }
 
     return ( 
-        <div className="heder">
-            <h1>MSD Regrutify Company</h1>
-        </div>
-        
+        <>
+            <div className="heder">
+                <Link to="/">
+                    <button onClick={logout}> Logout </button>
+                </Link>
+            </div>
+       </>
      );
 }
  

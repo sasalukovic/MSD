@@ -5,27 +5,76 @@
 }
 
 .report {
-    background-color: aqua;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
     flex-grow: 1;
+    .search {
+        border: 1px solid skyblue;
+        width: 100%;
+        padding: 20px;
+        margin: 10px 0px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        input {
+            border-radius: 25px;
+            padding: 10px;
+        }
+        .single-create {
+            border: 5px solid gray;
+            border-radius: 25px;
+            display: flex;
+            justify-content: space-between;
+            height: 50px;
+            .single-card {
+                // border: 3px solid blue;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-right: 3px solid gray;
+                width: 100px;
+                a{
+                    text-decoration: none;
+                }
+            }
+            .create-card {
+                // border: 3px solid green;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100px;
+                a{
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+    .list-of-reports {
+        border: 3px solid gray;
+    }
 }
 .interview-list {
-    border: 1px solid red;
+    // border: 1px solid red;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 10px;
-}
-
-.interview-list div {
-    width: 150px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-}
-
-.interview-list div:last-child {
-    text-align: center;
-    background-color: brown;
-    display: block;
-    padding-top: 15px;
+    margin: 20px 10px;
+    div {
+        width: 150px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        padding: 20px 0px;
+    }
+    div:last-child{
+        justify-content: center;
+        button {
+            width: 40px;
+            border: none;
+            height: 40px;
+            border-radius: 25px;
+        }
+    }
 }

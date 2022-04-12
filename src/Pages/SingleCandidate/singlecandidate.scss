@@ -7,4 +7,58 @@
 .single {
     flex-grow: 1;
     background-color: skyblue;
+    flex-direction: column;
+}
+.single-candidate {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    border: 1px solid red;
+}
+.single-candidate > div:first-child {
+    display: flex;
+    width: 500px;
+    height: 150px;
+    align-items: center;
+    justify-content: center;
+    img {
+        width: 150px;
+    }
+}
+.candidate-info {
+    display: flex;
+    flex-wrap: wrap;
+}
+.candidate-info > div {
+    width: 300px;
+    height: 150px;
+    border: 1px solid yellowgreen;
+    display: flex;
+    align-items: center;
+
+}
+table {
+    width: 100%;
+}
+
+
+.single-reports {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid red
+
+}
+
+.header-reports {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid blue;
+}
+
+.reports-info {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid black;
 }

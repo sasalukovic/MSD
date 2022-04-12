@@ -15,6 +15,7 @@ const Dashboard = () => {
     const [candidates, setCandidates] = useState([])
     const [companies, setCompanies] = useState([])
     const [reports, setReports] = useState([])
+    
    
     useEffect(()=>{
         fetch("http://localhost:3333/api/candidates")
@@ -33,6 +34,7 @@ const Dashboard = () => {
         .then(res=>res.json())
         .then(res=>setReports(res))
     },[])
+
     
     return ( 
         <div className="dashboard">
@@ -42,7 +44,7 @@ const Dashboard = () => {
                     <Switch>
                         <Route exact path="/dashboard" component={Report}></Route>                    
                         <Route path="/dashboard/create-report/" component={CreateReport}></Route>
-                        <Route path="/dashboard/single" component={SingleCandidate}></Route>
+                        <Route path="/dashboard/single/:id" component={SingleCandidate}></Route>
                     </Switch>
                 </div>
                 <Footer></Footer>

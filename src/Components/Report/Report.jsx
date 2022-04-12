@@ -34,9 +34,6 @@ const Report = (props) => {
                this is create report
            </Link>
            <br />
-           <Link to="/">
-                Log out
-           </Link>
         </div>
      );
 }

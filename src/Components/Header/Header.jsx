@@ -1,9 +1,21 @@
 import React from "react";
 import "./header.scss";
+import { Link } from "react-router-dom";
 
-const Header = () => {
+function Header (props){
+    const logout = () => {
+        props.logOut(null)  
+        localStorage.clear();
+        }
+
     return ( 
-        <div className="heder">This is header</div>
+        <>
+            <div className="heder">
+                <Link to="/">
+                    <button onClick={logout}> Logout </button>
+                </Link>
+            </div>
+       </>
      );
 }
  

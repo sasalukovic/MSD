@@ -1,21 +1,40 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./section2.scss";
 import { Link } from "react-router-dom"
+import { ctx } from "../Provider/Provider";
+import { useHistory } from "react-router-dom";
 
 const Section2 = () => {
-    return ( 
-        <div className="section2">
-            Section2
-            <br />
-            <Link to="/dashboard/create-report/section1">
-            Back to Section #1
-            </Link>
-            <br />
-            <Link to="/dashboard/create-report/section3">
-            Next to Section #3
-            </Link>
+    const value = useContext(ctx)
+    console.log(value);
+ 
+// GO BACK BUTTON
+let history = useHistory()
+const Back = () => {
+    return history.goBack()
+}
 
+     return ( 
+         <div className="section2">
+             Section 2
+             <div className="companies-cards">
+                {value.companies.map((e)=>{
+                    return <div className="section-companies">
+                                <h2>{e.name}</h2>
+                                <p>{e.email}</p>
+                        </div>
+                })}
         </div>
+        
+        <div className="buttons2">
+                <button onClick={Back}>BACK</button>
+                <br />
+                <br />
+                <Link to="/dashboard/create-report/section3">
+                <button type="button">NEXT</button>
+                </Link>
+        </div>
+     </div>
      );
 }
  

@@ -7,7 +7,25 @@ const Report = (props) => {
 
     const value = useContext(ctx)
     const [search, setSearch] = useState("")
+    const [shouldUpdate, setUpdate] = useState(false)
 
+    console.log(value.reports.id);
+
+    const deleteCandidate = (id) => {
+        fetch(`http://localhost:3333/api/reports/${id}`, {
+          method: "DELETE",
+          headers: {
+            "Content-Type" : "application/json",
+            "Authorization": `Bearer ${value.token}`
+          }
+        })
+        .then((res)=>res.json())
+        .then(res=>setDeletedCandidate(true))
+      }
+    
+    const setDeletedCandidate = ()=> {
+        setUpdate(!shouldUpdate)
+    }
 
 
     return (
@@ -50,7 +68,10 @@ const Report = (props) => {
                     <div>{e.companyName}</div>
                     <div>{(e.interviewDate).slice(4,15)}</div>
                     <div>{e.status}</div>
-                    <div><button>X</button></div>
+                    <div><button onClick={(e)=>{
+                        e.stopPropagation()
+                        deleteCandidate()
+                    }}>X</button></div>
             </div>
             )}
 

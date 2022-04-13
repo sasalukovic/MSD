@@ -15,6 +15,9 @@ const Dashboard = (props) => {
     const [candidates, setCandidates] = useState([])
     const [companies, setCompanies] = useState([])
     const [reports, setReports] = useState([])
+    const [shouldUpdate, setShouldUpdate] = useState(false)
+
+    const token = props.token
     
    
     useEffect(()=>{
@@ -35,10 +38,11 @@ const Dashboard = (props) => {
         .then(res=>setReports(res))
     },[])
 
-    
+
+
     return ( 
         <div className="dashboard">
-            <Provider value={{candidates, companies, reports}}>
+            <Provider value={{candidates, companies, reports, token}}>
                 <Header logOut={props.setToken}></Header>     
                 <div className="list">
                     <Switch>

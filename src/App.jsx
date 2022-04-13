@@ -22,7 +22,7 @@ function App() {
                 {token && 
                     <Switch>
                         <Route path="/dashboard">
-                            <Dashboard setToken={setToken}></Dashboard>    
+                            <Dashboard setToken={setToken} token={token}></Dashboard>    
                         </Route>
                         <Redirect from="/" to="/dashboard"/>
                     </Switch>

@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import "./section1.scss";
 import { Link } from "react-router-dom"
 import { ctx } from "../Provider/Provider";
@@ -49,7 +49,9 @@ const [search, setSearch] = useState("")
                 </Link>
             </div>
         </div>
-     );
+ );
+
 }
- 
+
+
 export default Section1;

@@ -9,13 +9,15 @@ import Report from "../../Components/Report/Report"
 import { useState, useEffect, useContext } from "react";
 import { Provider } from "../../Components/Provider/Provider";
 import { ctx } from "../../Components/Provider/Provider"; 
+import Modal from "../../Components/Modal/Modal";
 
 const Dashboard = (props) => {
 
     const [candidates, setCandidates] = useState([])
     const [companies, setCompanies] = useState([])
     const [reports, setReports] = useState([])
-    
+    const [validData, setValidData] = useState(false)
+    const token = props.token
    
     useEffect(()=>{
         fetch("http://localhost:3333/api/candidates")
@@ -33,12 +35,18 @@ const Dashboard = (props) => {
         fetch("http://localhost:3333/api/reports")
         .then(res=>res.json())
         .then(res=>setReports(res))
-    },[])
+    },[validData])
 
-    
+    const changeValidData = () => {
+        setValidData(!validData)
+    }
+
+
+
+ 
     return ( 
         <div className="dashboard">
-            <Provider value={{candidates, companies, reports}}>
+            <Provider value={{candidates, companies, reports, token, setValidData, changeValidData}}>
                 <Header logOut={props.setToken}></Header>     
                 <div className="list">
                     <Switch>

@@ -7,6 +7,10 @@
 .section1 {
     background-color: lightgreen;
     flex-grow: 1;
+    input {
+        border-radius: 25px;
+        padding: 10px;
+    }
     .candidates-cards {
         display: flex;
         flex-wrap: wrap;

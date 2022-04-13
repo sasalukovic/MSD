@@ -3,7 +3,6 @@ import './app.scss';
 import { Route, Switch, Redirect } from "react-router-dom";
 import Login from "./Pages/Login/Login"
 import Dashboard from "./Pages/Dashboard/Dashboard"
-import Header from "./Components/Header/Header";
 import { useState } from "react"; 
 
 function App() {
@@ -22,7 +21,7 @@ function App() {
                 {token && 
                     <Switch>
                         <Route path="/dashboard">
-                            <Dashboard setToken={setToken}></Dashboard>    
+                            <Dashboard setToken={setToken} token={token}></Dashboard>    
                         </Route>
                         <Redirect from="/" to="/dashboard"/>
                     </Switch>

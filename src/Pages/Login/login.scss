@@ -12,33 +12,74 @@
     background-image: url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2672&q=80");
     background-attachment: fixed;
     background-size: cover; 
+    // animation: move 10s infinite ease-in-out;
+}
+@keyframes move {
+    0% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(50%);
+    }
+    0% {
+        transform: translateX(0%);
+    }
+
+    
+    
+}
+
+.logo {
+    position: absolute;
+    left: 0;
+    top: 0;
+    img{
+        height: 200px;
+        
+    }
 }
 
 .naslov {
     margin-right: 300px;
     font-size: 30px;
     color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
 }
 
 .form {
     font-size: 30px;
-    color: white;    
+    color: white;
+    input {
+        padding: 20px;
+        border: none;
+        border-radius: 20px;
+        height: 20px;
+        width: 300px;
+    }    
+    button {
+        margin-top: 20px;
+        border: none;
+        border-radius: 20px;
+        width: 150px;
+        padding: 10px 20px;
+        background-color: yellow;
+        font-weight: 700;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: rgb(173, 173, 22);
+        color: white;
+    }
+    div {
+        margin: 20px 0px;
+        p{
+            margin: 20px 0px;
+        }
+    }
 }
 
-.form input {
-    padding: 10px;
-    border: none;
-    border-radius: 20px;
-    height: 20px;
-}
 
-.form button {
-    margin-top: 20px;
-    border: none;
-    border-radius: 20px;
-    width: 90px;
-    padding: 5px;
-    background-color: yellow;
-    font-weight: 550;
-    cursor: pointer;
-}
+

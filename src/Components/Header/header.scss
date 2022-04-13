@@ -5,13 +5,32 @@
 }
 .heder {
     width: 100%;
-    background-color: red;
-    height: 50px;
+    background-color: black;
+    height: 100px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
 }
 
 .search input{
     margin-right: 20px;
+}
+.heder-right {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    p {
+        color: white;
+        font-size: 24px;
+
+    }
+}
+.logout {
+    margin-right: 50px;
+    padding: 15px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
 }

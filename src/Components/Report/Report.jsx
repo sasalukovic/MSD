@@ -7,7 +7,19 @@ const Report = (props) => {
 
     const value = useContext(ctx)
     const [search, setSearch] = useState("")
+    console.log(value.token);
 
+    const deleteCandidate = (id) => {
+        fetch(`http://localhost:3333/api/reports/${id}`, {
+            method: "DELETE",
+            headers: {
+                "Content-type" : "application/json",
+            "Authorization": `Bearer ${value.token}` 
+            }
+        })
+        .then(res=>res.json())
+        .then(res=>value.changeValidData())
+    }
 
 
     return (
@@ -17,8 +29,8 @@ const Report = (props) => {
                 <input type="text" onChange={((e) => setSearch(e.target.value))} placeholder="Search"/>
                 <div className="single-create">
                     <div className="single-card">
-                        <Link to="/dashboard/single/:id">
-                            single
+                        <Link to="/dashboard">
+                            reports
                         </Link> 
                     </div>
                     <div className="create-card">
@@ -50,7 +62,10 @@ const Report = (props) => {
                     <div>{e.companyName}</div>
                     <div>{(e.interviewDate).slice(4,15)}</div>
                     <div>{e.status}</div>
-                    <div><button>X</button></div>
+                    <div><button onClick={(event)=>{
+                        event.stopPropagation()
+                        deleteCandidate(e.id)
+                    }}>X</button></div>
             </div>
             )}
 

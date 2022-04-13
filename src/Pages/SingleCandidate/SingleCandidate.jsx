@@ -1,21 +1,34 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import "./singlecandidate.scss";
 import { Link } from "react-router-dom";
 import { ctx } from "../../Components/Provider/Provider";
+import Modal from "../../Components/Modal/Modal";
 
 const SingleCandidate = (props) => {
+  
   const value = useContext(ctx);
+
   const candidate = value.candidates.find(
     (e) => e.id === Number(props.match.params.id)
-  );
+    );
   const reports = value.reports.filter(
-      (e)=>e.candidateId ===  Number(props.match.params.id)
-  )
-  console.log(props);
-    console.log(value);
+    (e)=>e.candidateId ===  Number(props.match.params.id)
+    )
+    
+  const [isModalOpen, setModalOpen] = useState(false)
+  const [report, setReport] = useState([])
+
+  const setSelectedReport = (selectedReport)=> {
+    setReport(selectedReport)
+  }
+
+  const setModal = (modalState) => {
+    setModalOpen(modalState)
+  }
+
   return (
     <div className="single">
- 
+      {isModalOpen && <Modal setModal={setModal} candidate={candidate} report={report}></Modal>}
         <div className="single-candidate">
             <div><img src="https://freesvg.org/img/abstract-user-flat-3.png" alt="img" /></div>
             <div className="candidate-info">
@@ -28,25 +41,23 @@ const SingleCandidate = (props) => {
             </div>
         </div>
         <br />
-        <table><div className="single-reports">
             Reports
-            <br />
-            <tr><div className="header-reports">
-                 <td><div><h3>Company</h3></div></td>
-                 <td><div><h3>Interview date</h3></div></td>
-                 <td rowspan="2"><div><h3>Status</h3></div></td>
-            </div>
+        <table className="single-reports">
+            <tr className="header-reports">
+                 <th><h3>Company</h3></th>
+                 <th><h3>Interview date</h3></th>
+                 <th><h3>Status</h3></th>
+                 <th>View</th>
             </tr>
             {reports.map((e)=>
-            <tr><div className="reports-info">                                   
-                    <div>{e.companyName}</div>                   
-                    <div>{(e.interviewDate).slice(4,15)}</div>                                                
-                    <div>{e.status}</div>                        
-                    <div>Modal</div>
-            </div>
+            <tr className="reports-info">                               
+                    <td>{e.companyName}</td>                   
+                    <td>{(e.interviewDate).slice(4,15)}</td>                                                
+                    <td>{e.status}</td>                        
+                    <td><button onClick={()=>{setModal(true)
+                       setSelectedReport(e)}}>More info</button></td>
             </tr>
             )}
-        </div>
         </table>
       
           

@@ -27,10 +27,20 @@
 }
 .logout {
     margin-right: 50px;
-    padding: 15px;
+    padding: 10px 15px;
     border-radius: 50px;
     font-weight: 600;
     font-size: 18px;
     border: none;
+    transition: color 0.25s;
+    transition: border 0.25s;
+    transition: background-color 0.25s;
+    cursor: pointer;
+}
+
+.logout:hover {
+    background-color: black;
+    outline: 3px solid whitesmoke;
+    color: lightgreen;
     cursor: pointer;
 }

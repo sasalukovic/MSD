@@ -37,7 +37,7 @@ const Login = (props) => {
       </div>
       <div className="naslov">
         <h1>Log In</h1>
-        <p>Start your career</p>
+        <p>Start your career at MSD</p>
       </div>
       <div className="form">
         <form>

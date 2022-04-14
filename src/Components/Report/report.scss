@@ -9,8 +9,8 @@
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+    background-color: lightgreen;
     .search {
-        border: 1px solid skyblue;
         width: 100%;
         padding: 20px;
         margin: 10px 0px;
@@ -22,36 +22,39 @@
             padding: 10px;
         }
         .single-create {
-            border: 5px solid gray;
+            border: 2px solid white;
             border-radius: 25px;
             display: flex;
             justify-content: space-between;
+            background-color: black;
             height: 50px;
             .single-card {
-                // border: 3px solid blue;
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                border-right: 3px solid gray;
+                border-right: 3px solid white;
                 width: 100px;
                 a{
                     text-decoration: none;
+                    color: white;
                 }
             }
             .create-card {
-                // border: 3px solid green;
+                padding-left: 20px;
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 width: 100px;
                 a{
                     text-decoration: none;
+                    color: white;
                 }
             }
         }
     }
     .list-of-reports {
         border: 3px solid gray;
+        padding: 0px 20px;
     }
 }
 .interview-list {
@@ -61,20 +64,53 @@
     align-items: center;
     padding: 0 10px;
     margin: 20px 10px;
-    div {
-        width: 150px;
-        height: 50px;
+    > div {
+        // width: 150px;
+        // height: 50px;
         display: flex;
+        flex-direction: column;
+        gap: 20px;
         align-items: center;
         padding: 20px 0px;
+        > div:first-child {
+            color: gray;
+        }
+    }
+    div:first-child {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: position 1s;
+        img {
+            height: 50px;
+        }
+        // &:before {
+        //     content:"";
+        // }
+        // &:hover::before {
+        //     content: "More info";
+        //     position: relative;
+        //     left: 20px;
+        // }
     }
     div:last-child{
         justify-content: center;
         button {
-            width: 40px;
+            padding: 0px 10px;
             border: none;
             height: 40px;
             border-radius: 25px;
+            border: 3px solid black;
+            text-transform: uppercase;
+            transition: color 0.25s;
+            transition: border 0.25s;
+            transition: background-color 0.25s;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: black;
+            border: 3px solid whitesmoke;
+            color: lightgreen;
             cursor: pointer;
         }
     }

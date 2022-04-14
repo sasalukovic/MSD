@@ -10,6 +10,7 @@
     input {
         border-radius: 25px;
         padding: 10px;
+        margin: 20px 90px;
     }
     .companies-cards {
         display: flex;
@@ -21,7 +22,7 @@
             display: flex;
             justify-content: center;
             border: 1px solid black;
-            width: 200px;
+            width: 300px;
             height: 150px;
             flex-direction: column;
             gap: 20px;
@@ -40,5 +41,13 @@
         gap: 10px;
         margin-bottom: 50px;
         margin-right: 100px;
+    }
+    button {
+        padding: 10px;
+        border: none;
+        border-radius: 10px;
+        margin: 0px 20px;
+        font-weight: 600;
+        cursor: pointer;
     }
 }

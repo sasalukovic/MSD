@@ -6,7 +6,7 @@ import Footer from "../../Components/Footer/Footer";
 import SingleCandidate from "../SingleCandidate/SingleCandidate";
 import CreateReport from "../CreateReport/CreateReport";
 import Report from "../../Components/Report/Report"
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import { Provider } from "../../Components/Provider/Provider";
 import { ctx } from "../../Components/Provider/Provider"; 
 import Modal from "../../Components/Modal/Modal";
@@ -41,9 +41,6 @@ const Dashboard = (props) => {
         setValidData(!validData)
     }
 
-
-
- 
     return ( 
         <div className="dashboard">
             <Provider value={{candidates, companies, reports, token, setValidData, changeValidData}}>

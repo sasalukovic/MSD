@@ -5,6 +5,51 @@
 }
 
 .section3 {
-    background-color: green;
+    background-color: lightgreen;
     flex-grow: 1;
+    p {
+        color: black;
+    }
+}
+
+.date-phase-status {
+    display: flex;
+    justify-content: space-around;
+    input{
+        width: 200px;
+        height: 30px;
+        border-radius: 10px;
+        border: none;
+        padding: 10px;
+        margin: 10px 0px;
+    }
+    select{
+        width: 200px;
+        border: none;
+        border-radius: 10px;
+        padding: 10px;
+        margin: 10px 0px;
+        cursor: pointer;
+    }
+}
+
+.notes {
+    margin-left: 220px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 50px;
+    align-items: center;
+    button {
+        margin: 0px 20px;
+        background-color: white;
+        color: black;
+        font-weight: 600;
+        padding: 10px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+    }
 }

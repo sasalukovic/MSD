@@ -4,23 +4,22 @@ import { Link } from "react-router-dom"
 import { ctx } from "../Provider/Provider";
 import { useHistory } from "react-router-dom";
 
-const Section1 = () => {
-   const value = useContext(ctx)
+const Section1 = (props) => {
+    const value = useContext(ctx)
 
-// GO BACK BUTTON
-let history = useHistory()
-const Back = () => {
+    // GO BACK BUTTON
+    let history = useHistory()
+    const Back = () => {
     return history.goBack()
-}
+ }     
 
-const [disabled, setDisabled] = useState(false)
-const [search, setSearch] = useState("")
+    const [disabled, setDisabled] = useState(false)
+    const [search, setSearch] = useState("")
 
 
     return ( 
         <div className="section1">
-            Section 1
-            <br />
+
             <input type="text" onChange={((e) => setSearch(e.target.value))} placeholder="Search"/>
             <div className="candidates-cards">
             {value.candidates.filter((e)=>{
@@ -33,7 +32,7 @@ const [search, setSearch] = useState("")
                 }
                 
             }).map((e)=>
-                            <div className="section-candidates">
+                            <div onClick={()=>props.pickSelectedCandidate(e)} className="section-candidates">
                                 <h2>{e.name}</h2>
                                 <p>{e.email}</p>
                             </div>
@@ -43,9 +42,8 @@ const [search, setSearch] = useState("")
 
             <div className="buttons">
                 <button onClick={Back}>BACK</button>
-                <br />
                 <Link to="/dashboard/create-report/section2">
-                <button disabled={disabled} onClick={() => setDisabled(true)}>NEXT</button>
+                    <button disabled={disabled} onClick={() => setDisabled(true)}>NEXT</button>
                 </Link>
             </div>
         </div>

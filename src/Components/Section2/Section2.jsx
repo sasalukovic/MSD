@@ -19,7 +19,7 @@ const [search, setSearch] = useState("")
 
      return ( 
          <div className="section2">
-             Section 2
+
              <br />
              <input type="text" onChange={((e) => setSearch(e.target.value))} placeholder="Search"/>
              <div className="companies-cards">
@@ -42,8 +42,6 @@ const [search, setSearch] = useState("")
         
         <div className="buttons2">
                 <button onClick={Back}>BACK</button>
-                <br />
-                <br />
                 <Link to="/dashboard/create-report/section3">
                 <button type="button">NEXT</button>
                 </Link>

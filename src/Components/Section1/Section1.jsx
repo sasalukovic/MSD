@@ -16,7 +16,6 @@ const Section1 = (props) => {
     const [disabled, setDisabled] = useState(false)
     const [search, setSearch] = useState("")
 
-
     return ( 
         <div className="section1">
 

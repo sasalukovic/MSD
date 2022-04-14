@@ -19,7 +19,6 @@ const CreateReport = () => {
         setSelectedCandidate(clicked)
     }
 
-
     const submitReport = () => {
         console.log("radim");
         fetch("http://localhost:3333/api/reports", {
@@ -32,7 +31,6 @@ const CreateReport = () => {
         .then((res)=>res.json())
         .then(res=>console.log(res))
     }
-    
     
     return ( 
         <div className="create-report"> 

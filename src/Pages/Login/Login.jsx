@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import "./login.scss"
+
 // fetch data - POST METHOD
 const Login = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("")
   const loginUser = (credentials) => {
     return fetch("http://localhost:3333/login", {
       method: "POST",
@@ -16,10 +18,14 @@ const Login = (props) => {
       .then((res) => res.json())
       .then((data) => {
         // TOKEN
-        const token = data.accessToken;
+        if(typeof data === "string"){
+            setErrorMessage(data)
+        } else {
+          const token = data.accessToken;
+          props.setToken(token)
+          localStorage.setItem("storedToken", token);
+        }        
         // STAVI GA U STATE
-        props.setToken(token)
-        localStorage.setItem("storedToken", token);
       })
       .catch((error) => console.log(error));
   };
@@ -43,14 +49,17 @@ const Login = (props) => {
         <form>
           <div>
             <p>Username:</p>
-            <input type="text" onChange={(e) => setEmail(e.target.value)} placeholder="Username"/>
+            <input type="text" onChange={(e) => {setEmail(e.target.value)
+              setErrorMessage("")}} placeholder="Username"/>
           </div>
           <div>
             <p>Password:</p>
             <input
               type="password"
-              onChange={(e) => setPassword(e.target.value)} placeholder="Password"
+              onChange={(e) => {setPassword(e.target.value) 
+              setErrorMessage("")}} placeholder="Password"
               />
+              {errorMessage && <p className="error-message">{errorMessage}</p>}
           </div>
           <div>
             <button type="submit" onClick={handleSubmit}>

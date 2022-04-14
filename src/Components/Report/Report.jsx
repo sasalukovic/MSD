@@ -30,12 +30,12 @@ const Report = (props) => {
                 <div className="single-create">
                     <div className="single-card">
                         <Link to="/dashboard">
-                            reports
+                            Reports
                         </Link> 
                     </div>
                     <div className="create-card">
                         <Link to="/dashboard/create-report/section1">
-                            create report
+                            Create Report
                         </Link>
                     </div>
                 </div>
@@ -57,15 +57,27 @@ const Report = (props) => {
                 
             }).map((e)=>
             <div className="interview-list">
-                    <div><Link to={`/dashboard/single/${e.candidateId}`}>avatar</Link></div>
-                    <div>{e.candidateName}</div>
-                    <div>{e.companyName}</div>
-                    <div>{(e.interviewDate).slice(4,15)}</div>
-                    <div>{e.status}</div>
+                    <div><Link to={`/dashboard/single/${e.candidateId}`}><img src="https://freesvg.org/img/abstract-user-flat-3.png" alt="img" /></Link></div>
+                    <div>
+                        <div>Candidate</div>
+                        <div>{e.candidateName}</div>
+                    </div>
+                    <div>
+                        <div>Company</div>
+                        <div>{e.companyName}</div>
+                    </div>
+                    <div>
+                        <div>Interview Date</div>
+                        <div>{(e.interviewDate).slice(4,15)}</div>
+                    </div>
+                    <div>
+                        <div>Status</div>
+                        <div>{e.status}</div>
+                    </div>
                     <div><button onClick={(event)=>{
                         event.stopPropagation()
                         deleteCandidate(e.id)
-                    }}>X</button></div>
+                    }}>Remove report</button></div>
             </div>
             )}
 

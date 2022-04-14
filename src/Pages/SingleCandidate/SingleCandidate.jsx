@@ -33,35 +33,48 @@ const SingleCandidate = (props) => {
             <div><img src="https://freesvg.org/img/abstract-user-flat-3.png" alt="img" /></div>
             <div className="candidate-info">
 
-                <div>Name: {candidate.name}</div>
-                <div>Date of birth: {candidate.birthday.slice(4,15).split(" ").join(".")}</div>
-                <div>Email: {candidate.email}</div>
-                <div>Education: {candidate.education}</div>
+                <div>
+                  <div>Name:</div> 
+                  <div>{candidate.name}</div>
+                </div>
+                <div>
+                  <div>Date of birth:</div>  
+                  <div>{candidate.birthday.slice(4,15).split(" ").join(".")}</div>
+                </div>
+                <div>
+                  <div>Email:</div> 
+                  <div>{candidate.email}</div>
+                </div>
+                <div>
+                  <div>Education:</div> 
+                  <div>{candidate.education}</div>
+                </div>
 
             </div>
         </div>
         <br />
             Reports
+        <br />
         <table className="single-reports">
             <tr className="header-reports">
                  <th><h3>Company</h3></th>
                  <th><h3>Interview date</h3></th>
                  <th><h3>Status</h3></th>
-                 <th>View</th>
+                 <th><h3>View</h3></th>
             </tr>
             {reports.map((e)=>
             <tr className="reports-info">                               
                     <td>{e.companyName}</td>                   
                     <td>{(e.interviewDate).slice(4,15)}</td>                                                
                     <td>{e.status}</td>                        
-                    <td><button onClick={()=>{setModal(true)
+                    <td className="btn"><button onClick={()=>{setModal(true)
                        setSelectedReport(e)}}>More info</button></td>
             </tr>
             )}
         </table>
       
           
-      <Link to="/dashboard">Back to Dashboard</Link>
+      <Link className="goback" to="/dashboard">Back to Dashboard</Link>
     </div>
   );
 };

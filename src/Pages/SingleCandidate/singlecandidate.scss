@@ -6,22 +6,23 @@
 
 .single {
     flex-grow: 1;
-    background-color: skyblue;
+    background-color: lightgreen;
     flex-direction: column;
 }
 .single-candidate {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    flex-direction: row;
-    border: 1px solid red;
+    background-color: white;
+    border-radius: 0px 0px 25px 25px;
 }
 .single-candidate > div:first-child {
     display: flex;
     width: 500px;
-    height: 150px;
+    height: 350px;
     align-items: center;
     justify-content: center;
+    flex-shrink: 1;
     img {
         width: 150px;
     }
@@ -29,17 +30,65 @@
 .candidate-info {
     display: flex;
     flex-wrap: wrap;
+    gap: 10px;
+    margin-right: 10px;
+    flex-grow: 1;
 }
 .candidate-info > div {
     width: 300px;
     height: 150px;
-    border: 1px solid yellowgreen;
+    border-radius: 25px;
+    // border: 1px solid yellowgreen;
+    background-color: whitesmoke;
     display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
+    gap: 25px;
 
 }
 table {
-    width: 100%;
+    border: 3px solid black;
+    border-radius: 25px;
+    padding: 10px;
+    th {
+        width: 200px;
+        display: flex;
+        justify-content: flex-start;
+        padding: 25px 10px;
+    }
+    tr {
+        padding: 0px 20px;
+        height: 50px;
+        align-items: center;
+        .btn {
+            padding: 15px 0px;
+        }
+    }
+    td {
+        text-align: center;
+        width: 200px;
+        display: flex;
+        justify-content: flex-start;
+        padding: 25px 10px;
+        button {
+            background-color: whitesmoke;
+            border: 3px solid black;
+            padding: 10px;
+            border-radius: 25px;
+            text-transform: uppercase;
+            transition: color 0.25s;
+            transition: border 0.25s;
+            transition: background-color 0.25s;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: black;
+            border: 3px solid whitesmoke;
+            color: white;
+            cursor: pointer;
+        }
+    }
 }
 
 
@@ -47,18 +96,20 @@ table {
     width: 100%;
     display: flex;
     flex-direction: column;
-    border: 1px solid red
 
 }
 
 .header-reports {
     display: flex;
     justify-content: space-between;
-    border: 1px solid blue;
 }
 
 .reports-info {
     display: flex;
     justify-content: space-between;
-    border: 1px solid black;
+}
+
+.goback{
+    color: black;
+    text-decoration: none;
 }

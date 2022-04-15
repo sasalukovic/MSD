@@ -31,7 +31,7 @@ const Section1 = (props) => {
                 }
                 
             }).map((e)=>
-                            <div onClick={()=>props.pickSelectedCandidate(e)} className="section-candidates">
+                            <div onClick={()=>props.pickSelectedCandidate("candidateId", e.id)} className="section-candidates">
                                 <h2>{e.name}</h2>
                                 <p>{e.email}</p>
                             </div>

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 import { ctx } from "../Provider/Provider";
 import { useHistory } from "react-router-dom";
 
-const Section2 = () => {
+const Section2 = (props) => {
     const value = useContext(ctx)
  
 // GO BACK BUTTON
@@ -33,7 +33,7 @@ const [search, setSearch] = useState("")
                 }
                 
             }).map((e)=>
-                        <div className="section-companies">
+                        <div onClick={()=>props.pickSelectedCompany('companyId', e.id)} className="section-companies">
                                 <h2>{e.name}</h2>
                                 <p>{e.email}</p>
                         </div>

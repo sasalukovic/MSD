@@ -7,10 +7,51 @@
 .section2 {
     background-color: lightgreen;
     flex-grow: 1;
+    .search {
+        width: 100%;
+        padding: 20px;
+        margin: 10px 0px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        input {
+            border-radius: 25px;
+            padding: 10px;
+        }
+        .single-create {
+            border: 2px solid white;
+            border-radius: 25px;
+            display: flex;
+            justify-content: space-between;
+            background-color: black;
+            height: 50px;
+            .single-card {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-right: 3px solid white;
+                width: 100px;
+                a{
+                    text-decoration: none;
+                    color: white;
+                }
+            }
+            .create-card {
+                padding-left: 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100px;
+                a{
+                    text-decoration: none;
+                    color: white;
+                }
+            }
+        }
+    }
     input {
         border-radius: 25px;
         padding: 10px;
-        margin: 20px 90px;
     }
     .companies-cards {
         display: flex;

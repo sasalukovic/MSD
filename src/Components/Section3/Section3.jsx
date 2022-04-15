@@ -15,43 +15,41 @@ const Back = () => {
     return ( 
         <div className="section3">
             <div className="date-phase-status">
-                <div>
+                <div onChange={(e)=>props.pickNewCandidate("interviewDate", e.target.value)}>
                     <p>Interview Date:</p>
                     <input type="date"/>
                 </div>
 
                 <form action="">
                     <p>Phase:</p>            
-                    <select name="phase" id="">
-                        <option value="">CV</option>    
-                        <option value="">HR</option>    
-                        <option value="">Technical</option>    
+                    <select onChange={(e)=>props.pickNewCandidate("phase", e.target.value)} name="phase" id="">
+                        <option value="CV">CV</option>    
+                        <option value="HR">HR</option>    
+                        <option value="Technical">Technical</option>    
                     </select>    
                 </form>
 
                   
                 <form action="">
                     <p>Status:</p>
-                    <select name="status">
-                        <option value="">Passed</option>    
-                        <option value="">Declined</option>                        
+                    <select onChange={(e)=>props.pickNewCandidate("status", e.target.value)} name="status">
+                        <option selected value="-">-</option>
+                        <option value="passed">passed</option>  
+                        <option value="declined">declined</option>                        
                     </select>    
                 </form>
             
-            
-            
             </div>
-            <div className="notes">
+            <div onChange={(e)=>props.pickNewCandidate("note", e.target.value)} className="notes">
                 <p>Notes:</p>
                 <textarea name="textarea" id="" cols="130" rows="10" placeholder="Enter your comments"></textarea>
             </div>
             
-          
             <div className="buttons">
                 <button onClick={Back}>BACK</button>
-                {/* <Link> */}
+                <Link to="/dashboard">
                     <button onClick={props.submitReport}>Submit</button> 
-                {/* </Link> */}
+                </Link>
             </div>
 
   

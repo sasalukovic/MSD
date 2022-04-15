@@ -1,11 +1,7 @@
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: 0;
-}
-
 .create-report {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+    background: rgb(34,61,195);
+    background: linear-gradient(163deg, rgba(34,61,195,1) 0%, rgba(255,255,255,1) 100%);
 }

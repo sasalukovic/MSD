@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 import { ctx } from "../Provider/Provider";
 import { useHistory } from "react-router-dom";
 
-const Section2 = () => {
+const Section2 = (props) => {
     const value = useContext(ctx)
  
 // GO BACK BUTTON
@@ -19,9 +19,22 @@ const [search, setSearch] = useState("")
 
      return ( 
          <div className="section2">
+            <div className="search">
+                <input type="text" onChange={((e) => setSearch(e.target.value))} placeholder="Search"/>
+                <div className="single-create">
+                    <div className="single-card">
+                        <Link to="/dashboard">
+                            Reports
+                        </Link> 
+                    </div>
+                    <div className="create-card">
+                        <Link to="/dashboard/create-report/section1">
+                            Create Report
+                        </Link>
+                    </div>
+                </div>
+            </div>
 
-             <br />
-             <input type="text" onChange={((e) => setSearch(e.target.value))} placeholder="Search"/>
              <div className="companies-cards">
              {value.companies.filter((e)=>{
                 if(search === ""){
@@ -33,7 +46,8 @@ const [search, setSearch] = useState("")
                 }
                 
             }).map((e)=>
-                        <div className="section-companies">
+                        <div onClick={()=>{props.pickNewCandidate("companyId", e.id)
+                        props.pickNewCandidate("companyName", e.name)}}  className="section-companies">
                                 <h2>{e.name}</h2>
                                 <p>{e.email}</p>
                         </div>

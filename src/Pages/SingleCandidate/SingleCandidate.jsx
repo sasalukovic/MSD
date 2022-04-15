@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useParams } from "react";
 import "./singlecandidate.scss";
 import { Link } from "react-router-dom";
 import { ctx } from "../../Components/Provider/Provider";
@@ -17,6 +17,8 @@ const SingleCandidate = (props) => {
     
   const [isModalOpen, setModalOpen] = useState(false)
   const [report, setReport] = useState([])
+
+  
 
   const setSelectedReport = (selectedReport)=> {
     setReport(selectedReport)
@@ -65,7 +67,7 @@ const SingleCandidate = (props) => {
             {reports.map((e)=>
             <tr className="reports-info">                               
                     <td>{e.companyName}</td>                   
-                    <td>{(e.interviewDate).slice(4,15)}</td>                                                
+                    <td>{(e.interviewDate).length > 15 ? (e.interviewDate).slice(4,15) : e.interviewDate}</td>                                                
                     <td>{e.status}</td>                        
                     <td className="btn"><button onClick={()=>{setModal(true)
                        setSelectedReport(e)}}>More info</button></td>

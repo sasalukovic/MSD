@@ -50,14 +50,14 @@ const Login = (props) => {
           <div>
             <p>Username:</p>
             <input type="text" onChange={(e) => {setEmail(e.target.value)
-              setErrorMessage("")}} placeholder="Username"/>
+              setErrorMessage("")}} className={errorMessage ? "input-error" : ""} placeholder="Username"/>
           </div>
           <div>
             <p>Password:</p>
             <input
               type="password"
               onChange={(e) => {setPassword(e.target.value) 
-              setErrorMessage("")}} placeholder="Password"
+              setErrorMessage("")}} className={errorMessage ? "input-error" : ""} placeholder="Password"
               />
               {errorMessage && <p className="error-message">{errorMessage}</p>}
           </div>

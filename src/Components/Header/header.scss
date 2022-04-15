@@ -1,8 +1,3 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 .heder {
     width: 100%;
     background-color: black;
@@ -10,6 +5,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    flex-shrink: 0;
 }
 
 .search input{

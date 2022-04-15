@@ -3,7 +3,9 @@ import "./footer.scss";
 
 const Footer = () => {
     return ( 
-        <div className="footer">this is footer</div>
+        <div className="footer">
+            &#169; Copyright MSD 2022. All Rights Reserved
+        </div>
      );
 }
  

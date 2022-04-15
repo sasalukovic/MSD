@@ -1,15 +1,23 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 .report {
     background-color: white;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    background-color: lightgreen;
+    height: 100%;
+    background: rgb(34,61,195);
+    background: linear-gradient(163deg, rgba(34,61,195,1) 0%, rgba(255,255,255,1) 100%);
+    background-size: 300%;
+    animation: shift 10s infinite alternate;
+
+    @keyframes shift {
+        from {
+            background-position: top left;
+        }
+        to {
+            background-position: top right;
+        }
+    }
+    
     .search {
         width: 100%;
         padding: 20px;
@@ -32,11 +40,26 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                border-right: 3px solid white;
+                // border-right: 3px solid white;
                 width: 100px;
+                transition: color 0.25s;
+                transition: border 0.25s;
+                transition: background-color 0.25s;
                 a{
                     text-decoration: none;
                     color: white;
+                }
+                &:hover {
+                    background-color: lightgreen;
+                    border: 3px solid black;
+                    color: lightgreen;
+                    border-radius: 25px;
+                    cursor: pointer;
+                    a {
+                        text-decoration: none;
+                        color: black;
+                        font-weight: 700;
+                    }
                 }
             }
             .create-card {
@@ -45,16 +68,49 @@
                 justify-content: center;
                 align-items: center;
                 width: 100px;
+                transition: color 0.25s;
+                transition: border 0.25s;
+                transition: background-color 0.25s;
                 a{
                     text-decoration: none;
                     color: white;
                 }
+                &:hover {
+                    background-color: lightgreen;
+                    border: 3px solid black;
+                    color: lightgreen;
+                    border-radius: 25px;
+                    cursor: pointer;
+                    a {
+                        text-decoration: none;
+                        color: black;
+                        font-weight: 700;
+                    }
+                }
             }
+            
         }
     }
     .list-of-reports {
-        border: 3px solid gray;
+        // border-bottom: 3px solid white;
         padding: 0px 20px;
+        overflow: auto;
+        margin: 20px 10px;
+        &::-webkit-scrollbar {
+            width: 15px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background: transparent;
+            border: 3px solid black;
+            border-radius: 25px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: black;
+            border-radius: 25px;
+            border: 3px solid white;
+        }
     }
 }
 .interview-list {
@@ -63,9 +119,10 @@
     justify-content: space-between;
     align-items: center;
     padding: 0 10px;
-    margin: 20px 10px;
+    // margin: 20px 10px;
+    transition: outline-offset 0.25s;
     > div {
-        // width: 150px;
+        width: 200px;
         // height: 50px;
         display: flex;
         flex-direction: column;
@@ -73,7 +130,7 @@
         align-items: center;
         padding: 20px 0px;
         > div:first-child {
-            color: gray;
+            color: white;
         }
     }
     div:first-child {
@@ -81,17 +138,29 @@
         align-items: center;
         justify-content: center;
         transition: position 1s;
+        width: 100px;
         img {
             height: 50px;
+            transition: margin-right 0.15s;
         }
-        // &:before {
-        //     content:"";
-        // }
-        // &:hover::before {
-        //     content: "More info";
-        //     position: relative;
-        //     left: 20px;
-        // }
+        img:hover {
+            margin-right: 40px;
+        }
+        &:before {
+            content:"";
+            position: absolute;
+            transition: margin-right 0.15s;
+        }
+        &:hover::before {
+            content: "More info";
+            position: absolute;
+            // border: 3px solid black;
+            margin-right: 10px;
+            left: 120px;
+        }
+    }
+    div:nth-child(3) {
+        width: 300px;
     }
     div:last-child{
         justify-content: center;
@@ -113,5 +182,10 @@
             color: lightgreen;
             cursor: pointer;
         }
+    }
+    &:hover {
+        outline-offset: -10px;
+        outline: 3px solid whitesmoke;
+        border-radius: 25px;
     }
 }

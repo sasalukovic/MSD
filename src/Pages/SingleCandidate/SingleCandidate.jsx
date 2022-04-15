@@ -7,7 +7,7 @@ import Modal from "../../Components/Modal/Modal";
 const SingleCandidate = (props) => {
   
   const value = useContext(ctx);
-
+  
   const candidate = value.candidates.find(
     (e) => e.id === Number(props.match.params.id)
     );
@@ -17,6 +17,8 @@ const SingleCandidate = (props) => {
     
   const [isModalOpen, setModalOpen] = useState(false)
   const [report, setReport] = useState([])
+
+  
 
   const setSelectedReport = (selectedReport)=> {
     setReport(selectedReport)
@@ -65,7 +67,7 @@ const SingleCandidate = (props) => {
             {reports.map((e)=>
             <tr className="reports-info">                               
                     <td>{e.companyName}</td>                   
-                    <td>{(e.interviewDate).slice(4,15)}</td>                                                
+                    <td>{(e.interviewDate).length > 15 ? (e.interviewDate).slice(4,15) : e.interviewDate}</td>                                                
                     <td>{e.status}</td>                        
                     <td className="btn"><button onClick={()=>{setModal(true)
                        setSelectedReport(e)}}>More info</button></td>

@@ -68,7 +68,7 @@ const Report = (props) => {
                     </div>
                     <div>
                         <div>Interview Date</div>
-                        <div>{(e.interviewDate).slice(4,15)}</div>
+                        <div>{(e.interviewDate).length > 15 ? (e.interviewDate).slice(4,15) : e.interviewDate}</div>
                     </div>
                     <div>
                         <div>Status</div>

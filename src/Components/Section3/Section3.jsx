@@ -12,58 +12,39 @@ const Section3 = (props) => {
 
   return (
     <div className="section3">
-      <div className="date-phase-status">
-        <div>
-          <p>Interview Date:</p>
-          <input
-            type="date"
-            onChange={(e) => props.pickDetails("interviewDate", e.target.value)}
-          />
+        <div className="date-phase-status">
+            <div onChange={(e)=>props.pickNewCandidate("interviewDate", e.target.value)}>
+                <p>Interview Date:</p>
+                <input type="date"/>
+            </div>
+            <form action="">
+                <p>Phase:</p>
+                <select onChange={(e)=>props.pickNewCandidate("phase", e.target.value)} name="phase" id="">
+                    <option value="CV">CV</option>
+                    <option value="HR">HR</option>
+                    <option value="Technical">Technical</option>
+                </select>
+            </form>
+            <form action="">
+                <p>Status:</p>
+                <select onChange={(e)=>props.pickNewCandidate("status", e.target.value)} name="status">
+                    <option selected value="-">-</option>
+                    <option value="passed">passed</option>
+                    <option value="declined">declined</option>
+                </select>
+            </form>
         </div>
-
-        <form action="">
-          <p>Phase:</p>
-          <select
-            name="phase"
-            id=""
-            onChange={(e) => props.pickDetails("phase", e.target.value)}
-          >
-            <option value="CV">CV</option>
-            <option value="HR">HR</option>
-            <option value="Technical">Technical</option>
-          </select>
-        </form>
-
-        <form action="">
-          <p>Status:</p>
-          <select
-            name="status"
-            onChange={(e) => props.pickDetails("status", e.target.value)}
-          >
-            <option selected value="-">-</option>
-            <option value="passed">passed</option>
-            <option value="declined">declined</option>
-          </select>
-        </form>
-      </div>
-      <div className="notes">
-        <p>Notes:</p>
-        <textarea
-          name="message"
-          onChange={(e) => props.pickDetails("notes", e.target.value)}
-          placeholder="Enter your comments"
-        ></textarea>
-        |
-      </div>
-
-      <div className="buttons">
-        <button onClick={Back}>BACK</button>
-        <Link to="/dashboard">
-            <button onClick={props.submitReport}>Submit</button>
-        </Link>
-      </div>
+        <div onChange={(e)=>props.pickNewCandidate("note", e.target.value)} className="notes">
+            <p>Notes:</p>
+            <textarea name="textarea" id="" cols="130" rows="10" placeholder="Enter your comments"></textarea>
+        </div>
+        <div className="buttons">
+            <button onClick={Back}>BACK</button>
+            <Link to="/dashboard">
+                <button onClick={props.submitReport}>Submit</button>
+            </Link>
+        </div>
     </div>
-  );
-};
-
+ );
+}
 export default Section3;

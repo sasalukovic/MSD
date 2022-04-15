@@ -9,77 +9,59 @@ import { ctx } from "../../Components/Provider/Provider";
 const CreateReport = () => {
   const value = useContext(ctx);
 
-  const [selectedCandidate, setSelectedCandidate] = useState(null);
-  const [selectedCompany, setSelectedCompany] = useState(null);
-  const [details, setDetails] = useState({
-        interviewDate: "",
-        phase: "",
-        status: "",
-        notes: "",
+  const [newCandidate, setNewCandidate] = useState({
+    candidateId: "",
+    companyId: "",
+    interviewDate: "",
+    phase: "",
+    status: "",
+    note: "",
   });
 
-//   console.log(details);
-
-
-
-//   const pickSelectedCandidate = (clicked) => {
-//     console.log(clicked);
-//     setSelectedCandidate(clicked);
-//   };
-
-//   const pickSelectedCompany = (clicked) => {
-//     console.log(clicked);
-//     setSelectedCompany(clicked);
-//   };
-
-  const pickSelectedCandidate = (key, value) => {
-    console.log(value);
-    setSelectedCandidate({
+  const pickNewCandidate = (key, value) => {
+    setNewCandidate((prevState) => ({
+      ...prevState,
       [key]: value,
-    });
-  };
-
-
-  const pickSelectedCompany = (key, value) => {
-    console.log(value);
-    setSelectedCompany({
-      [key]: value,
-    });
-  };
-
-  const pickDetails = (key, value) => {
-    setDetails({
-      ...details,
-      [key]: value,
-    });
+    }));
   };
 
   const submitReport = () => {
-    console.log("radim");
+    const candidate = value.candidates.find(
+      (e) => e.id === newCandidate.candidateId
+    );
+    const company = value.companies.find(
+      (e) => e.id === newCandidate.companyId
+    );
+
+    console.log("radim", newCandidate, value.candidates, value.companies);
     fetch("http://localhost:3333/api/reports", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${value.token}`
+        Authorization: `Bearer ${value.token}`,
       },
-      body: JSON.stringify(details)
-      ,})
+      body: JSON.stringify({
+        ...newCandidate,
+        candidateName: candidate.name,
+        companyName: company.name,
+      }),
+    })
       .then((res) => res.json())
-      .then((res) => console.log(res))
+      .then((res) => console.log(res));
   };
 
   return (
     <div className="create-report">
       <Switch>
         <Route exact path="/dashboard/create-report/section1">
-          <Section1 pickSelectedCandidate={pickSelectedCandidate}></Section1>
+          <Section1 pickNewCandidate={pickNewCandidate}></Section1>
         </Route>
         <Route path="/dashboard/create-report/section2">
-          <Section2 pickSelectedCompany={pickSelectedCompany}></Section2>
+          <Section2 pickNewCandidate={pickNewCandidate}></Section2>
         </Route>
         <Route path="/dashboard/create-report/section3">
           <Section3
-            pickDetails={pickDetails}
+            pickNewCandidate={pickNewCandidate}
             submitReport={submitReport}
           ></Section3>
         </Route>

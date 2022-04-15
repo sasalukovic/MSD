@@ -58,7 +58,9 @@
         border: none;
         border-radius: 20px;
         height: 20px;
-        width: 300px;
+        width: 350px;
+        font-size: 20px;
+
     }    
     button {
         margin-top: 20px;
@@ -85,7 +87,7 @@
     }
     div {
         margin: 20px 0px;
-        p{
+        p:first-child {
             margin: 20px 0px;
         }
     }
@@ -93,11 +95,32 @@
 
 .error-message{
     font-size: 18px;
-    background-color: red;
-    color: white;
+    color: whitesmoke;
     border: none;
+    outline: 3px solid red;
+    background-color: black;
     border-radius: 20px;
-    padding: 5px;
+    padding: 10px 20px;
+    margin-top: 30px;
+    animation: shake 300ms;
+}
+
+.input-error {
+    outline: 3px double red;
+    box-shadow: 0px 0px 10px 5px red;
+    animation: error 300ms;
+}
+
+@keyframes shake {
+    25% {transform: translateX(300px); }
+    50% {transform: translateX(-20px); }
+    75% {transform: translateX(20px); }
+}
+
+@keyframes error {
+    25% {transform: translateX(10px); }
+    50% {transform: translateX(-10px); }
+    75% {transform: translateX(10px); }
 }
 
 

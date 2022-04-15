@@ -18,7 +18,7 @@ const Modal = (props) => {
                         </div>
                         <div>
                             <p>Date</p>
-                            <h3>{props.report.interviewDate.slice(4,15)}</h3>
+                            <h3>{(props.report.interviewDate).length > 15 ? (props.report.interviewDate).slice(4,15) : props.report.interviewDate}</h3>
                         </div>
                         <div>
                             <p>Phase</p>

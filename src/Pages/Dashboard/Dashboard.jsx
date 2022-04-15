@@ -6,7 +6,7 @@ import Footer from "../../Components/Footer/Footer";
 import SingleCandidate from "../SingleCandidate/SingleCandidate";
 import CreateReport from "../CreateReport/CreateReport";
 import Report from "../../Components/Report/Report"
-import { useState, useEffect } from "react";
+import { useState, useEffect, useParams } from "react";
 import { Provider } from "../../Components/Provider/Provider";
 import { ctx } from "../../Components/Provider/Provider"; 
 import Modal from "../../Components/Modal/Modal";
@@ -18,7 +18,7 @@ const Dashboard = (props) => {
     const [reports, setReports] = useState([])
     const [validData, setValidData] = useState(false)
     const token = props.token
-   
+
     useEffect(()=>{
         fetch("http://localhost:3333/api/candidates")
         .then(res=>res.json())

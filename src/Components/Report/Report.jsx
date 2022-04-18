@@ -1,13 +1,18 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./report.scss";
 import { Link } from "react-router-dom"
 import { ctx } from "../Provider/Provider";
 
 const Report = (props) => {
-
     const value = useContext(ctx)
     const [search, setSearch] = useState("")
-    console.log(value.token);
+     
+    useEffect(() => {
+        fetch("http://localhost:3333/api/reports")
+          .then((res) => res.json())
+          .then((res) => value.changeValidData());
+      }, []);
+    // console.log(value.token);
 
     const deleteCandidate = (id) => {
         fetch(`http://localhost:3333/api/reports/${id}`, {
@@ -21,9 +26,7 @@ const Report = (props) => {
         .then(res=>value.changeValidData())
     }
 
-
     return (
-         
         <div className="report">
             <div className="search">
                 <input type="text" onChange={((e) => setSearch(e.target.value))} placeholder="Search"/>
@@ -53,8 +56,6 @@ const Report = (props) => {
                     return e
                 }
                 
-                
-                
             }).map((e)=>
             <div className="interview-list">
                     <div><Link to={`/dashboard/single/${e.candidateId}`}><img src="https://freesvg.org/img/abstract-user-flat-3.png" alt="img" /></Link></div>
@@ -82,8 +83,6 @@ const Report = (props) => {
             )}
 
             </div>
-
-          
         </div>
      );
 }

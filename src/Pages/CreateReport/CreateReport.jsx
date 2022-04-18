@@ -33,7 +33,7 @@ const CreateReport = () => {
       (e) => e.id === newCandidate.companyId
     );
 
-    console.log("radim", newCandidate, value.candidates, value.companies);
+    
     fetch("http://localhost:3333/api/reports", {
       method: "POST",
       headers: {
@@ -47,17 +47,17 @@ const CreateReport = () => {
       }),
     })
       .then((res) => res.json())
-      .then((res) => console.log(res));
+      .then((res) => value.changeValidData());
   };
 
   return (
     <div className="create-report">
       <Switch>
         <Route exact path="/dashboard/create-report/section1">
-          <Section1 pickNewCandidate={pickNewCandidate}></Section1>
+          <Section1 selectedCandidateId={newCandidate.candidateId} pickNewCandidate={pickNewCandidate}></Section1>
         </Route>
         <Route path="/dashboard/create-report/section2">
-          <Section2 pickNewCandidate={pickNewCandidate}></Section2>
+          <Section2 selectedCompanyId={newCandidate.companyId} pickNewCandidate={pickNewCandidate}></Section2>
         </Route>
         <Route path="/dashboard/create-report/section3">
           <Section3

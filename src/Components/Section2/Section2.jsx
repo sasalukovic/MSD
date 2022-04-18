@@ -6,6 +6,7 @@ import { useHistory } from "react-router-dom";
 
 const Section2 = (props) => {
     const value = useContext(ctx)
+    const {selectedCompanyId} = props
  
 // GO BACK BUTTON
 let history = useHistory()
@@ -13,7 +14,6 @@ let history = useHistory()
 const Back = () => {
     return history.goBack()
 }
-
 
 const [search, setSearch] = useState("")
 
@@ -47,7 +47,7 @@ const [search, setSearch] = useState("")
                 
             }).map((e)=>
                         <div onClick={()=>{props.pickNewCandidate("companyId", e.id)
-                        props.pickNewCandidate("companyName", e.name)}}  className="section-companies">
+                        props.pickNewCandidate("companyName", e.name)}} className={`section-companies${e.id === selectedCompanyId ? " active" : ""}`}>
                                 <h2>{e.name}</h2>
                                 <p>{e.email}</p>
                         </div>

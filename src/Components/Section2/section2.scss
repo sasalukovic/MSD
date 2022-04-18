@@ -1,11 +1,5 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
 .section2 {
-    background-color: lightgreen;
     flex-grow: 1;
     .search {
         width: 100%;
@@ -29,11 +23,24 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                border-right: 3px solid white;
                 width: 100px;
+                transition: color 0.25s;
+                transition: border 0.25s;
+                transition: background-color 0.25s;
                 a{
                     text-decoration: none;
                     color: white;
+                }
+                &:hover {
+                    background-color: rgb(62, 79, 167);
+                    border: 3px solid black;
+                    border-radius: 25px;
+                    cursor: pointer;
+                    a {
+                        text-decoration: none;
+                        color: black;
+                        font-weight: 700;
+                    }
                 }
             }
             .create-card {
@@ -42,9 +49,23 @@
                 justify-content: center;
                 align-items: center;
                 width: 100px;
+                transition: color 0.25s;
+                transition: border 0.25s;
+                transition: background-color 0.25s;
                 a{
                     text-decoration: none;
                     color: white;
+                }
+                &:hover {
+                    background-color: rgb(62, 79, 167);
+                    border: 3px solid black;
+                    border-radius: 25px;
+                    cursor: pointer;
+                    a {
+                        text-decoration: none;
+                        color: black;
+                        font-weight: 700;
+                    }
                 }
             }
         }
@@ -56,25 +77,35 @@
     .companies-cards {
         display: flex;
         flex-wrap: wrap;
-        margin: 50px;
+        margin: 10px;
         padding: 50px;
         gap: 25px;
         .section-companies {
             display: flex;
             justify-content: center;
-            border: 1px solid black;
+            border-radius: 25px;
+            background-color: whitesmoke;
             width: 300px;
             height: 150px;
             flex-direction: column;
             gap: 20px;
             padding: 20px;
+            transition: outline-offset 0.25s;
+            cursor: pointer;
             p {
                 font-size: 12px
             }
         }
         .section-companies:hover {
-            box-shadow: 0px 0px 10px 10px white;
+            outline-offset: -10px;
+            outline: 3px solid black;
+            border-radius: 25px;
         }
+        .active {
+            background-color: black;
+            color: white;
+        }
+        
     }
     .buttons2 {
         display: flex;

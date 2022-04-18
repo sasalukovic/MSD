@@ -1,13 +1,9 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
 .single {
     flex-grow: 1;
-    background-color: lightgreen;
     flex-direction: column;
+    background-color: rgb(62, 79, 167);
+    height: calc(100vh - 100px - 50px);
 }
 .single-candidate {
     display: flex;
@@ -33,6 +29,29 @@
     gap: 10px;
     margin-right: 10px;
     flex-grow: 1;
+    > div {
+        transition: 0.15s;
+
+        &:hover {
+            transform: scale(1.5) rotate(360deg);
+            border: 3px solid rgb(62, 79, 167);
+            // animation: popup 0.5s ease-in-out;
+        }
+        @keyframes popup {
+            25% {
+                position: relative;
+                left: 200px;
+                top: 200px;
+            }
+            75% {
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+        }
+    }
 }
 .candidate-info > div {
     width: 300px;
@@ -48,7 +67,7 @@
 
 }
 table {
-    border: 3px solid black;
+    border: 3px solid rgb(62, 79, 167);
     border-radius: 25px;
     padding: 10px;
     th {
@@ -77,17 +96,45 @@ table {
             padding: 10px;
             border-radius: 25px;
             text-transform: uppercase;
-            transition: color 0.25s;
-            transition: border 0.25s;
-            transition: background-color 0.25s;
+            transition: 0.5s;
             cursor: pointer;
         }
         button:hover {
             background-color: black;
-            border: 3px solid whitesmoke;
+            border: 3px solid rgb(62, 79, 167);
             color: white;
+            width: 300px;
+            transform: translateX(-50px);
             cursor: pointer;
         }
+    }
+}
+.backTo {
+    padding: 20px 10px;
+    button {
+        background-color: rgb(62, 79, 167);
+        border-radius: 25px;
+        border: none;
+        color: white;
+        padding: 10px;
+        cursor: pointer;
+        transition: 0.25s;
+        &:hover {
+            background-color: white;
+            outline:3px solid black;
+            color: black;
+            font-weight: 700;
+            transform: translateX(10px);
+        }
+    }
+}
+
+.candidate-reports {
+    background-color: white;
+    border-radius: 25px;
+    padding: 10px 20px;
+    p {
+       padding: 10px 20px;
     }
 }
 

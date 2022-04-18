@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import "./section1.scss";
 import { Link } from "react-router-dom";
 import { ctx } from "../Provider/Provider";
@@ -6,7 +6,7 @@ import { useHistory } from "react-router-dom";
 
 const Section1 = (props) => {
   const value = useContext(ctx);
-
+  const {selectedCandidateId} = props
   // GO BACK BUTTON
   let history = useHistory();
   const Back = () => {
@@ -47,7 +47,7 @@ const Section1 = (props) => {
               onClick={() => {
                 props.pickNewCandidate("candidateId", e.id);
               }}
-              className="section-candidates"
+              className={`section-candidates${e.id === selectedCandidateId ? " active" : ""}`}
             >
               <h2>{e.name}</h2>
               <p>{e.email}</p>

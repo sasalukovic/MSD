@@ -28,15 +28,14 @@
     font-weight: 600;
     font-size: 18px;
     border: none;
-    transition: color 0.25s;
-    transition: border 0.25s;
-    transition: background-color 0.25s;
+    transition: 0.25s;
     cursor: pointer;
 }
 
 .logout:hover {
     background-color: black;
     outline: 3px solid whitesmoke;
-    color: lightgreen;
+    color: rgb(62, 79, 167);
     cursor: pointer;
+    transform: translateX(5px);
 }

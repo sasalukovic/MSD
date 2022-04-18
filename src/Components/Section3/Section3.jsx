@@ -10,6 +10,7 @@ const Section3 = (props) => {
     return history.goBack();
   };
 
+
   return (
     <div className="section3">
         <div className="date-phase-status">

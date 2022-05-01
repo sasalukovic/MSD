@@ -33,7 +33,6 @@ const CreateReport = () => {
       (e) => e.id === newCandidate.companyId
     );
 
-    
     fetch("http://localhost:3333/api/reports", {
       method: "POST",
       headers: {

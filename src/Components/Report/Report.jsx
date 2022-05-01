@@ -19,7 +19,7 @@ const Report = (props) => {
             method: "DELETE",
             headers: {
                 "Content-type" : "application/json",
-            "Authorization": `Bearer ${value.token}` 
+                "Authorization": `Bearer ${value.token}` 
             }
         })
         .then(res=>res.json())

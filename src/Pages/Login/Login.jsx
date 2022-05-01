@@ -6,6 +6,7 @@ const Login = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("")
+
   const loginUser = (credentials) => {
     return fetch("http://localhost:3333/login", {
       method: "POST",
@@ -29,6 +30,7 @@ const Login = (props) => {
       })
       .catch((error) => console.log(error));
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     loginUser({
@@ -36,6 +38,7 @@ const Login = (props) => {
       password,
     });
   };
+  
   return (
     <div className="login-wrapper">
       <div className="logo">

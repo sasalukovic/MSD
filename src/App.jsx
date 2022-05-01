@@ -17,7 +17,7 @@ function App() {
                         </Route>
                         <Redirect from="/dashboard" to="/"/>
                     </Switch>
-                    } 
+                } 
                 {token && 
                     <Switch>
                         <Route path="/dashboard">
